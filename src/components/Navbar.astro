@@ -1,18 +1,21 @@
 ---
 const navLinks = [
+  { name: 'Beranda', href: '/' },
+  { name: 'Keunggulan', href: '#features' },
   { name: 'Layanan', href: '#layanan' },
   { name: 'Tentang', href: '#tentang' },
   { name: 'Testimoni', href: '#testimoni' },
 ];
+import { WHATSAPP_LINK } from '../constants';
 ---
 
 <nav class="sticky top-0 z-40 w-full backdrop-blur-md bg-white/80 border-b border-slate-200">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex justify-between h-20 items-center">
-      <div class="flex-shrink-0 flex items-center gap-2">
-        <div class="w-10 h-10 bg-orange-500 rounded-xl flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-orange-200">K</div>
-        <span class="text-2xl font-extrabold tracking-tight text-slate-900">Keuangan<span class="text-orange-500">Desa</span></span>
-      </div>
+      <a href="/" class="flex-shrink-0 flex items-center gap-2 group">
+        <div class="w-10 h-10 bg-orange-500 rounded-xl flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-orange-200 group-hover:scale-110 transition-transform">K</div>
+        <span class="text-2xl font-extrabold tracking-tight text-slate-900">Keuangan <span class="text-orange-500">Desa</span></span>
+      </a>
       
       <div class="hidden md:ml-6 md:flex md:space-x-8">
         {navLinks.map(link => (
@@ -23,7 +26,7 @@ const navLinks = [
       </div>
 
       <div class="flex items-center">
-        <a href="https://wa.me/628123456789" class="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2.5 rounded-full font-bold shadow-lg shadow-orange-200 transition-all hover:-translate-y-0.5">
+        <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" class="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2.5 rounded-full font-bold shadow-lg shadow-orange-200 transition-all hover:-translate-y-0.5">
           Hubungi Kami
         </a>
       </div>

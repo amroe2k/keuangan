@@ -1,0 +1,73 @@
+---
+import { Quote, Star } from 'lucide-astro';
+
+const testimonials = [
+  {
+    name: 'Bapak Sudirman',
+    role: 'Ketua BUMDes Makmur Jaya',
+    content: 'Sebelumnya laporan keuangan kami berantakan dan sulit diaudit. Setelah didampingi dengan sistem Excel dari Keuangan Desa, semuanya jadi otomatis dan transparan. Luar biasa!',
+    rating: 5,
+    avatar: 'S'
+  },
+  {
+    name: 'Ibu Ratna',
+    role: 'Pemilik UMKM Keripik Tempe',
+    content: 'Pelatihannya sangat mudah diikuti bahkan untuk saya yang awam akuntansi. Sekarang saya tahu persis berapa keuntungan bersih usaha saya setiap bulannya.',
+    rating: 5,
+    avatar: 'R'
+  },
+  {
+    name: 'Bapak Ahmad',
+    role: 'Kepala Desa Sumber Alam',
+    content: 'Investasi terbaik untuk tata kelola keuangan desa kami. Laporan yang dihasilkan sangat profesional dan diakui oleh pihak kecamatan maupun kabupaten.',
+    rating: 5,
+    avatar: 'A'
+  }
+];
+---
+
+<section id="testimoni" class="py-24 bg-slate-50 relative overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <div class="text-center max-w-3xl mx-auto mb-20">
+      <h2 class="text-orange-500 font-extrabold tracking-widest uppercase text-sm mb-4">Testimoni</h2>
+      <p class="text-4xl sm:text-5xl font-black text-slate-900 mb-6 tracking-tight">Kisah Sukses Mitra Kami</p>
+      <div class="h-1.5 w-24 bg-orange-500 mx-auto rounded-full"></div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {testimonials.map(t => (
+        <div class="bg-white p-10 rounded-[2.5rem] shadow-xl shadow-slate-200/50 border border-slate-100 flex flex-col relative group hover:-translate-y-2 transition-all duration-500">
+          <!-- Quote Icon -->
+          <div class="absolute -top-6 -right-6 w-16 h-16 bg-orange-500 rounded-2xl flex items-center justify-center text-white shadow-xl shadow-orange-200 rotate-12 group-hover:rotate-0 transition-transform duration-500">
+            <Quote size={24} fill="currentColor" />
+          </div>
+
+          <!-- Star Rating -->
+          <div class="flex gap-1 mb-8">
+            {[...Array(t.rating)].map(() => (
+              <Star size={16} class="text-orange-400" fill="currentColor" />
+            ))}
+          </div>
+
+          <!-- Content -->
+          <p class="text-slate-600 leading-relaxed font-medium mb-10 italic">"{t.content}"</p>
+
+          <!-- Profile -->
+          <div class="mt-auto flex items-center gap-4">
+            <div class="w-14 h-14 bg-orange-50 rounded-2xl flex items-center justify-center text-orange-600 font-black text-xl border border-orange-100">
+              {t.avatar}
+            </div>
+            <div>
+              <div class="font-bold text-slate-900 leading-tight">{t.name}</div>
+              <div class="text-xs font-bold text-orange-500 uppercase tracking-widest mt-1">{t.role}</div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+  
+  <!-- Decorative background -->
+  <div class="absolute top-1/2 left-0 w-64 h-64 bg-orange-200/20 rounded-full blur-[100px] -ml-32"></div>
+</section>

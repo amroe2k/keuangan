@@ -18,6 +18,7 @@ const services = [
     icon: ShieldCheck,
   },
 ];
+import { WHATSAPP_LINK } from '../constants';
 ---
 
 <section id="layanan" class="py-24 bg-white relative">
@@ -37,7 +38,7 @@ const services = [
           </div>
           <h3 class="text-2xl font-bold text-slate-900 mb-4 group-hover:text-orange-500 transition-colors tracking-tight">{s.title}</h3>
           <p class="text-slate-600 leading-relaxed font-medium mb-8 max-w-sm">"{s.desc}"</p>
-          <a href="https://wa.me/628123456789" class="text-sm font-black text-orange-600 flex items-center gap-2 group-hover:gap-4 transition-all uppercase tracking-widest">
+          <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" class="text-sm font-black text-orange-600 flex items-center gap-2 group-hover:gap-4 transition-all uppercase tracking-widest">
             Konsultasi <span class="bg-orange-600 w-6 h-[2px]"></span>
           </a>
         </div>

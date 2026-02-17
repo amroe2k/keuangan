@@ -2,39 +2,142 @@
 interface Props {
 	title: string;
 	description?: string;
+	keywords?: string;
+	ogImage?: string;
+	canonicalURL?: string;
 }
 
-const { title, description = "Jasa Konsultan Keuangan Profesional (BUMDes & UMKM) - Transformasi Laporan Keuangan Berbasis Excel yang Terjangkau." } = Astro.props;
+const { 
+	title, 
+	description = "Jasa Konsultan Keuangan Profesional (BUMDes & UMKM) - Transformasi Laporan Keuangan Berbasis Excel yang Terjangkau.",
+	keywords = "konsultan keuangan, BUMDes, UMKM, laporan keuangan excel, pembukuan desa, audit keuangan, pelatihan keuangan, jasa akuntansi, konsultan pajak UMKM",
+	ogImage = "/og-image.jpg",
+	canonicalURL = Astro.url.href
+} = Astro.props;
+
 import '../styles/global.css';
+import { WHATSAPP_LINK } from '../constants';
+
+const siteName = "Keuangan Desa - Konsultan Keuangan Profesional";
 ---
 
 <!doctype html>
 <html lang="id" class="scroll-smooth">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content={description} />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta name="generator" content={Astro.generator} />
+		
+		<!-- Primary Meta Tags -->
 		<title>{title}</title>
+		<meta name="title" content={title} />
+		<meta name="description" content={description} />
+		<meta name="keywords" content={keywords} />
+		<meta name="author" content="Keuangan Desa" />
+		<meta name="robots" content="index, follow" />
+		<link rel="canonical" href={canonicalURL} />
+		
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={canonicalURL} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content={ogImage} />
+		<meta property="og:site_name" content={siteName} />
+		<meta property="og:locale" content="id_ID" />
+		
+		<!-- Twitter -->
+		<meta property="twitter:card" content="summary_large_image" />
+		<meta property="twitter:url" content={canonicalURL} />
+		<meta property="twitter:title" content={title} />
+		<meta property="twitter:description" content={description} />
+		<meta property="twitter:image" content={ogImage} />
+		
+		<!-- Favicon -->
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 		
 		<!-- Google Fonts: Inter -->
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+		
+		<!-- Structured Data / Schema.org -->
+		<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "ProfessionalService",
+			"name": "Keuangan Desa",
+			"description": "Jasa Konsultan Keuangan Profesional untuk BUMDes & UMKM",
+			"url": "https://keuangandesa.id",
+			"telephone": "+62-812-6990-499",
+			"address": {
+				"@type": "PostalAddress",
+				"addressCountry": "ID",
+				"addressLocality": "Indonesia"
+			},
+			"priceRange": "$$",
+			"areaServed": {
+				"@type": "Country",
+				"name": "Indonesia"
+			},
+			"serviceType": ["Konsultan Keuangan", "Pembukuan", "Pelatihan Keuangan", "Audit Internal"],
+			"knowsAbout": ["Akuntansi", "Laporan Keuangan", "Excel", "BUMDes", "UMKM"]
+		}
+		</script>
 	</head>
 	<body class="bg-white text-slate-900 font-['Inter'] selection:bg-orange-100 selection:text-orange-600">
 		<slot />
 		
 		<!-- Floating WhatsApp Button -->
 		<a 
-			href="https://wa.me/628123456789" 
+			href={WHATSAPP_LINK} 
+			target="_blank" 
+			rel="noopener noreferrer"
 			class="fixed bottom-6 right-6 bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-transform z-50 group"
 			aria-label="Chat WhatsApp"
 		>
 			<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-circle"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
 			<span class="absolute right-full mr-3 bg-white text-slate-800 px-3 py-1 rounded-lg text-sm font-semibold opacity-0 group-hover:opacity-100 transition-opacity shadow-sm whitespace-nowrap border border-slate-100">Konsultasi Gratis</span>
 		</a>
+		<!-- Back to Top Button -->
+		<button 
+			id="back-to-top"
+			class="fixed bottom-6 right-24 bg-white text-orange-500 p-4 rounded-full shadow-2xl hover:bg-orange-50 transition-all z-50 translate-y-20 opacity-0 border border-slate-100"
+			aria-label="Kembali ke atas"
+		>
+			<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
+		</button>
+
+		<script>
+			const backToTopBtn = document.getElementById('back-to-top');
+
+			window.addEventListener('scroll', () => {
+				if (window.scrollY > 500) {
+					backToTopBtn?.classList.remove('translate-y-20', 'opacity-0');
+					backToTopBtn?.classList.add('translate-y-0', 'opacity-100');
+				} else {
+					backToTopBtn?.classList.add('translate-y-20', 'opacity-0');
+					backToTopBtn?.classList.remove('translate-y-0', 'opacity-100');
+				}
+			});
+
+			backToTopBtn?.addEventListener('click', () => {
+				window.scrollTo({ top: 0, behavior: 'smooth' });
+			});
+
+			// Reveal on Scroll Logic
+			const revealElements = document.querySelectorAll('.reveal');
+			const observer = new IntersectionObserver((entries) => {
+				entries.forEach(entry => {
+					if (entry.isIntersecting) {
+						entry.target.classList.add('active');
+					}
+				});
+			}, { threshold: 0.1 });
+
+			revealElements.forEach(el => observer.observe(el));
+		</script>
 	</body>
 </html>
 

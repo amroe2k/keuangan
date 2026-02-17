@@ -1,0 +1,72 @@
+---
+const partners = [
+  { name: 'BUMDes Mandiri', logo: 'BUMDes' },
+  { name: 'Kementerian Desa', logo: 'KEMENDESA' },
+  { name: 'Bank Indonesia', logo: 'BI' },
+  { name: 'Pemkab Setempat', logo: 'PEMKAB' },
+  { name: 'OJK', logo: 'OJK' },
+  { name: 'IKPI', logo: 'IKPI' },
+  // Duplicate for seamless loop
+  { name: 'BUMDes Mandiri', logo: 'BUMDes' },
+  { name: 'Kementerian Desa', logo: 'KEMENDESA' },
+  { name: 'Bank Indonesia', logo: 'BI' },
+  { name: 'Pemkab Setempat', logo: 'PEMKAB' },
+];
+---
+
+<section class="py-12 bg-white border-b border-slate-100 overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 mb-8">
+    <p class="text-center text-xs font-bold uppercase tracking-[0.3em] text-slate-400">
+      Telah Dipercaya & Bermitra Dengan
+    </p>
+  </div>
+
+  <div class="relative flex overflow-x-hidden">
+    <div class="py-4 animate-marquee whitespace-nowrap flex items-center gap-12 lg:gap-24">
+      {partners.map(p => (
+        <div class="flex items-center gap-3 grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-500 cursor-default">
+          <div class="w-10 h-10 bg-slate-100 rounded-lg flex items-center justify-center font-black text-slate-400 group-hover:text-orange-500">
+            {p.logo[0]}
+          </div>
+          <span class="text-xl lg:text-2xl font-black text-slate-800 tracking-tighter lowercase">
+            {p.logo}<span class="text-orange-500">.</span>
+          </span>
+        </div>
+      ))}
+    </div>
+
+    <!-- Duplicate for seamless loop -->
+    <div class="absolute top-0 py-4 animate-marquee2 whitespace-nowrap flex items-center gap-12 lg:gap-24">
+      {partners.map(p => (
+        <div class="flex items-center gap-3 grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-500 cursor-default">
+          <div class="w-10 h-10 bg-slate-100 rounded-lg flex items-center justify-center font-black text-slate-400">
+            {p.logo[0]}
+          </div>
+          <span class="text-xl lg:text-2xl font-black text-slate-800 tracking-tighter lowercase">
+            {p.logo}<span class="text-orange-500">.</span>
+          </span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .animate-marquee {
+    animation: marquee 30s linear infinite;
+  }
+
+  .animate-marquee2 {
+    animation: marquee2 30s linear infinite;
+  }
+
+  @keyframes marquee {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-100%); }
+  }
+
+  @keyframes marquee2 {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(0%); }
+  }
+</style>

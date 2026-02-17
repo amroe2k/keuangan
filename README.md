@@ -1,44 +1,24 @@
-# Astro Starter Kit: Minimal
+# KeuanganDesa - Konsultan Keuangan Profesional
 
-```sh
-npm create astro@latest -- --template minimal
-```
+Transformasi Laporan Keuangan BUMDes & UMKM menjadi Standar Profesional dengan Solusi Berbasis Excel yang Terjangkau.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Tentang Kami
+Kami adalah konsultan keuangan profesional yang berfokus pada pemberdayaan BUMDes (Badan Usaha Milik Desa) dan UMKM (Usaha Mikro Kecil Menengah) di Indonesia. Dengan pendekatan berbasis Excel yang mudah dipahami, kami membantu usaha Anda tumbuh lebih mandiri dan transparan.
 
-## 🚀 Project Structure
+## Layanan Kami
+- 📊 Penyusunan Laporan Keuangan
+- 🎓 Pelatihan Keuangan Praktis
+- 🛡️ Audit Keuangan Internal
 
-Inside of your Astro project, you'll see the following folders and files:
+## Teknologi
+Website ini dibangun menggunakan:
+- [Astro](https://astro.build) - Modern Static Site Generator
+- [Tailwind CSS v4](https://tailwindcss.com) - Utility-first CSS Framework
+- [Lucide Icons](https://lucide.dev) - Beautiful & Consistent Icons
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+## Kontak
+- WhatsApp: +62 812-6990-499
+- Email: kontak@keuangandesa.id
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
-# keuangan
+---
+© 2026 KeuanganDesa. Membantu Ekonomi Desa & UMKM Bertumbuh.

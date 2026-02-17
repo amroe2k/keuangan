@@ -46,8 +46,8 @@ const features = [
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
-      {features.map(f => (
-        <div class="bg-white p-10 rounded-[2.5rem] border border-slate-100 hover:border-orange-200 hover:shadow-2xl hover:shadow-orange-100 transition-all duration-500 group">
+      {features.map((f, index) => (
+        <div class={`bg-white p-10 rounded-[2.5rem] border border-slate-100 hover:border-orange-200 hover:shadow-2xl hover:shadow-orange-100 transition-all duration-500 group reveal ${'delay-' + (index % 3 + 1) * 100}`}>
           <div class="w-16 h-16 bg-orange-50 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-orange-500 group-hover:text-white transition-all duration-500">
             <f.icon size={32} class="text-orange-500 group-hover:text-white transition-colors" />
           </div>

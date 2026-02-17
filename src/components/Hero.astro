@@ -2,6 +2,7 @@
 import { Image } from 'astro:assets';
 import heroImage from '../assets/hero.avif';
 import { ArrowRight, TrendingUp, DollarSign, PieChart } from 'lucide-astro';
+import { WHATSAPP_LINK } from '../constants';
 ---
 
 <section class="relative pt-32 pb-24 overflow-hidden bg-white">
@@ -27,7 +28,7 @@ import { ArrowRight, TrendingUp, DollarSign, PieChart } from 'lucide-astro';
         </p>
         
         <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
-          <a href="https://wa.me/628123456789" class="w-full sm:w-auto px-8 py-5 bg-orange-500 text-white rounded-2xl font-extrabold flex items-center justify-center gap-3 hover:bg-orange-600 transition-all shadow-xl shadow-orange-200 group">
+          <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-8 py-5 bg-orange-500 text-white rounded-2xl font-extrabold flex items-center justify-center gap-3 hover:bg-orange-600 transition-all shadow-xl shadow-orange-200 group">
             Konsultasi Gratis Sekarang <ArrowRight size={20} class="group-hover:translate-x-1 transition-transform" />
           </a>
           <a href="#layanan" class="w-full sm:w-auto px-8 py-5 bg-white text-slate-700 border border-slate-200 rounded-2xl font-bold hover:bg-slate-50 transition-all">

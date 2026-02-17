@@ -6,25 +6,41 @@ import Features from '../components/Features.astro';
 import Services from '../components/Services.astro';
 import About from '../components/About.astro';
 import ExcelShowcase from '../components/ExcelShowcase.astro';
+import Testimonials from '../components/Testimonials.astro';
+import Sponsors from '../components/Sponsors.astro';
+import { WHATSAPP_LINK } from '../constants';
 import { MessageSquare } from 'lucide-astro';
 ---
 
 <BaseLayout title="Hubungan Keuangan | Konsultan Keuangan BUMDes & UMKM">
 	<Navbar />
 	<main>
-		<Hero />
+		<div class="animate-fadeInUp">
+			<Hero />
+		</div>
 		
     <!-- Brief Transformation Statement Section -->
-    <section class="py-12 bg-white border-y border-slate-100 italic font-medium text-slate-500 text-center">
+    <section class="py-12 bg-white border-y border-slate-100 italic font-medium text-slate-500 text-center reveal">
       <div class="max-w-4xl mx-auto px-4">
         "Transformasi Laporan Keuangan BUMDes & UMKM menjadi Standar Profesional dengan Solusi Berbasis Excel yang Terjangkau."
       </div>
     </section>
 
-		<Features />
-    <About />
-    <Services />
-    <ExcelShowcase />
+		<div class="reveal">
+			<Features />
+		</div>
+    <div class="reveal">
+			<Services />
+		</div>
+    <div class="reveal">
+			<About />
+		</div>
+    <div class="reveal">
+			<ExcelShowcase />
+		</div>
+    <div class="reveal">
+			<Testimonials />
+		</div>
 		
 		<!-- Final CTA Section -->
 		<section class="py-32 bg-white relative overflow-hidden">
@@ -42,7 +58,7 @@ import { MessageSquare } from 'lucide-astro';
               Bergabunglah dengan puluhan BUMDes dan pelaku UMKM yang telah beralih ke sistem pelaporan profesional kami. Kami bantu dari nol sampai mahir.
             </p>
 						<div class="flex flex-col sm:flex-row items-center justify-center gap-6">
-              <a href="https://wa.me/628123456789" class="w-full sm:w-auto px-12 py-6 bg-orange-500 text-white rounded-[2rem] font-black text-lg hover:bg-orange-600 transition-all shadow-2xl shadow-orange-500/20 hover:-translate-y-1 flex items-center justify-center gap-3">
+              <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-12 py-6 bg-orange-500 text-white rounded-[2rem] font-black text-lg hover:bg-orange-600 transition-all shadow-2xl shadow-orange-500/20 hover:-translate-y-1 flex items-center justify-center gap-3">
                 <MessageSquare size={24} />
                 WhatsApp Konsultasi Gratis
               </a>
@@ -56,11 +72,16 @@ import { MessageSquare } from 'lucide-astro';
 		</section>
 	</main>
 	
+	<!-- Sponsors Section -->
+	<div class="reveal">
+		<Sponsors />
+	</div>
+	
 	<footer class="py-20 bg-slate-50 border-t border-slate-100">
 		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex flex-col md:flex-row justify-between items-center gap-12">
         <div class="text-3xl font-black tracking-tighter text-slate-900">
-          Amanah<span class="text-orange-500">Keuangan</span>
+          Keuangan <span class="text-orange-500">Desa</span>
         </div>
         <div class="flex flex-wrap justify-center gap-10 text-slate-500 font-bold text-sm">
           <a href="#" class="hover:text-orange-500 transition-colors">Beranda</a>
@@ -70,7 +91,7 @@ import { MessageSquare } from 'lucide-astro';
         </div>
       </div>
       <div class="mt-20 pt-10 border-t border-slate-200 flex flex-col md:flex-row justify-between items-center gap-6 text-slate-400 text-xs font-bold uppercase tracking-widest">
-        <div>© 2026 Amanah Keuangan Profesional. Membantu Ekonomi Desa & UMKM Bertumbuh.</div>
+        <div>© 2026 Keuangan Desa Profesional. Membantu Ekonomi Desa & UMKM Bertumbuh.</div>
         <div class="flex gap-8">
           <a href="#" class="hover:text-slate-600">Terbuka untuk Kemitraan</a>
           <a href="#" class="hover:text-slate-600">Standard Operasional</a>

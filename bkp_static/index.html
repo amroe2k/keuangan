@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jasa Keuangan BUMDes & UMKM | Laporan Rapi & Mandiri</title>
+    <meta name="description" content="Jasa penyusunan laporan keuangan Excel, pelatihan, dan audit internal untuk BUMDes, Koperasi, dan UMKM. Akurat, cepat, dan terjangkau.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Plus+Jakarta+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #f97316; /* Orange-500 */
+            --primary-hover: #ea580c; /* Orange-600 */
+            --bg: #f8fafc; /* Light Slate Blue/White */
+            --card-bg: #ffffff;
+            --text-main: #0f172a; /* Dark Slate */
+            --text-muted: #475569; /* Slate 600 */
+            --glass: rgba(255, 255, 255, 0.7);
+            --glass-border: #e2e8f0; /* Gray 200 */
+            --accent-glow: rgba(249, 115, 22, 0.05);
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: var(--bg);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800;
+            color: #0f172a;
+        }
+
+        /* Soft Mesh Gradient Background */
+        .mesh-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: 
+                radial-gradient(circle at 10% 20%, rgba(249, 115, 22, 0.04) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(59, 130, 246, 0.03) 0%, transparent 40%),
+                var(--bg);
+        }
+
+        /* Navbar */
+        nav {
+            padding: 1.25rem 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(248, 250, 252, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--text-main);
+            letter-spacing: -0.02em;
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        header {
+            padding: 8rem 10% 5rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .badge-hero {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.5rem 1.25rem;
+            background: #fff;
+            border: 1px solid var(--glass-border);
+            border-radius: 99px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow-sm);
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        .dot {
+            width: 6px;
+            height: 6px;
+            background: var(--primary);
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(249, 115, 22, 0.3);
+            animation: pulse 2s infinite;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 6vw, 3.8rem);
+            max-width: 950px;
+            margin: 0 auto 1.5rem;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+            color: #0f172a;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        .hero-sub {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 750px;
+            margin: 0 auto 3.5rem;
+            animation: fadeInUp 0.8s ease-out 0.4s both;
+        }
+
+        /* Buttons */
+        .btn {
+            padding: 1.1rem 2.5rem;
+            border-radius: 14px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            font-size: 1.05rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: #fff;
+            box-shadow: 0 10px 25px -5px rgba(249, 115, 22, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-hover);
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 20px 35px -10px rgba(249, 115, 22, 0.4);
+        }
+
+        /* Services */
+        section { padding: 6rem 10%; }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .section-header h2 { font-size: 2.5rem; margin-bottom: 1rem; color: #0f172a; }
+        .section-header p { color: var(--text-muted); max-width: 600px; margin: 0 auto; }
+
+        .grid-services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .card-service {
+            background: var(--card-bg);
+            border: 1px solid var(--glass-border);
+            padding: 3.5rem 2.5rem;
+            border-radius: 28px;
+            transition: all 0.4s ease;
+            position: relative;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .card-service:hover {
+            border-color: var(--primary);
+            transform: translateY(-12px);
+            box-shadow: 0 30px 60px -15px rgba(15, 23, 42, 0.08);
+        }
+
+        .icon-service {
+            width: 70px;
+            height: 70px;
+            background: rgba(249, 115, 22, 0.08);
+            border-radius: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            margin-bottom: 2.5rem;
+            transition: transform 0.4s ease;
+        }
+
+        .card-service:hover .icon-service {
+            transform: rotate(-5deg) scale(1.1);
+        }
+
+        .card-service h3 { font-size: 1.5rem; margin-bottom: 1.25rem; color: #0f172a; }
+        .card-service p { color: var(--text-muted); font-size: 1.05rem; line-height: 1.7; }
+
+        /* Why Choose Us */
+        .grid-why {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .why-item {
+            display: flex;
+            gap: 1.25rem;
+            background: #fff;
+            padding: 2.5rem;
+            border-radius: 24px;
+            border: 1px solid var(--glass-border);
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .why-item:hover {
+            border-color: rgba(249, 115, 22, 0.3);
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .checkmark {
+            color: var(--primary);
+            flex-shrink: 0;
+            margin-top: 4px;
+        }
+
+        .why-content h4 { font-size: 1.2rem; margin-bottom: 0.5rem; color: #0f172a; }
+        .why-content p { font-size: 0.95rem; color: var(--text-muted); }
+
+        /* Footer CTA */
+        .cta-box {
+            background: white;
+            border: 1px solid var(--glass-border);
+            border-radius: 40px;
+            padding: 6rem 4rem;
+            text-align: center;
+            margin: 4rem 10% 8rem;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .cta-box::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at center, rgba(249, 115, 22, 0.03) 0%, transparent 60%);
+            z-index: -1;
+        }
+
+        .cta-box h2 { font-size: 2.8rem; margin-bottom: 1.5rem; color: #0f172a; }
+        .cta-box p { font-size: 1.2rem; color: var(--text-muted); margin-bottom: 3rem; max-width: 600px; margin-left: auto; margin-right: auto; }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(0.95); opacity: 0.8; }
+            50% { transform: scale(1.15); opacity: 1; }
+            100% { transform: scale(0.95); opacity: 0.8; }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header { padding: 6rem 5% 4rem; }
+            section { padding: 4rem 5%; }
+            .cta-box { margin: 2rem 5% 4rem; padding: 4rem 2rem; }
+            h1 { font-size: 2.2rem; }
+            .grid-services { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="mesh-bg"></div>
+
+    <nav>
+        <div class="logo">Amanah<span>Keuangan</span></div>
+        <a href="https://wa.me/your-number" class="btn btn-primary" style="padding: 0.6rem 1.5rem; font-size: 0.9rem; border-radius: 99px;">WhatsApp Kami</a>
+    </nav>
+
+    <header>
+        <div class="badge-hero">
+            <div class="dot"></div>
+            Solusi Keuangan Desa & UMKM
+        </div>
+        <h1>Laporan Keuangan Rapi, <br>BUMDes & UMKM Makin Mandiri!</h1>
+        <p class="hero-sub">
+            Hadirkan transparansi dan profesionalisme dalam usaha Anda dengan Jasa Penyusunan Laporan Keuangan berbasis Excel yang akurat, cepat, dan harga sangat terjangkau.
+        </p>
+        <div class="cta-wrap">
+            <a href="https://wa.me/your-number" class="btn btn-primary">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                Konsultasi Gratis via WhatsApp
+            </a>
+        </div>
+    </header>
+
+    <section id="layanan" style="background: white;">
+        <div class="section-header">
+            <h2>Layanan Kami</h2>
+            <p>Solusi pembukuan yang dirancang khusus untuk memenuhi kebutuhan unik Anda.</p>
+        </div>
+        <div class="grid-services">
+            <!-- Service 1 -->
+            <div class="card-service">
+                <div class="icon-service">
+                    <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+                </div>
+                <h3>Penyusunan Laporan Keuangan</h3>
+                <p>Ubah tumpukan nota menjadi laporan neraca dan laba rugi yang rapi. Kami bantu menyusun laporan bulanan hingga tahunan untuk BUMDes, Kopdes, dan UMKM sesuai standar akuntansi.</p>
+            </div>
+            <!-- Service 2 -->
+            <div class="card-service">
+                <div class="icon-service">
+                    <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><polyline points="16 11 18 13 22 9"/></svg>
+                </div>
+                <h3>Pelatihan Keuangan Sederhana</h3>
+                <p>Ingin tim Anda mandiri? Kami berikan pelatihan praktis pengelolaan kas dan pembukuan sederhana menggunakan Excel bagi pengelola desa atau pemilik usaha pemula.</p>
+            </div>
+            <!-- Service 3 -->
+            <div class="card-service">
+                <div class="icon-service">
+                    <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                </div>
+                <h3>Audit Keuangan Internal</h3>
+                <p>Pastikan setiap rupiah terkelola dengan benar. Kami bantu melakukan pemeriksaan internal (audit) untuk mencegah kebocoran anggaran dan meningkatkan kepercayaan masyarakat.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="why">
+        <div class="section-header">
+            <h2>Mengapa Memilih Kami?</h2>
+        </div>
+        <div class="grid-why">
+            <!-- Point 1 -->
+            <div class="why-item">
+                <div class="checkmark">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <div class="why-content">
+                    <h4>Spesialis Excel</h4>
+                    <p>Laporan dibuat menggunakan Excel yang sistematis, sehingga mudah dipahami, diedit, dan diarsipkan oleh Anda secara mandiri.</p>
+                </div>
+            </div>
+            <!-- Point 2 -->
+            <div class="why-item">
+                <div class="checkmark">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <div class="why-content">
+                    <h4>Harga Merakyat</h4>
+                    <p>Layanan profesional dengan skema biaya yang disesuaikan dengan skala usaha UMKM atau kapasitas anggaran desa.</p>
+                </div>
+            </div>
+            <!-- Point 3 -->
+            <div class="why-item">
+                <div class="checkmark">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <div class="why-content">
+                    <h4>Privasi Terjamin</h4>
+                    <p>Kami menjaga kerahasiaan data keuangan usaha Anda sepenuhnya dengan integritas profesional.</p>
+                </div>
+            </div>
+            <!-- Point 4 -->
+            <div class="why-item">
+                <div class="checkmark">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <div class="why-content">
+                    <h4>Pengalaman Lokal</h4>
+                    <p>Memahami karakteristik dan tantangan unik yang dihadapi BUMDes dan Koperasi di Indonesia.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="cta-box">
+        <h2>Jangan biarkan pembukuan yang berantakan menghambat kemajuan usaha Anda.</h2>
+        <p>Mari buat laporan keuangan Anda lebih profesional hari ini. Klik tombol di bawah untuk tanya-tanya dulu!</p>
+        <a href="https://wa.me/your-number" class="btn btn-primary" style="border-radius: 99px; padding: 1.25rem 4rem;">
+            Tanya Sekarang
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+    </div>
+
+    <footer style="padding: 4rem 10% 2rem; border-top: 1px solid var(--glass-border); text-align: center; color: var(--text-muted); font-size: 0.9rem;">
+        <p>&copy; 2026 Amanah Keuangan Profesional. Membantu Ekonomi Desa & UMKM Bertumbuh.</p>
+    </footer>
+</body>
+</html>

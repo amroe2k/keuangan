@@ -1,0 +1,120 @@
+---
+import { Image } from 'astro:assets';
+import heroImage from '../assets/hero.avif';
+import { ArrowRight, TrendingUp, DollarSign, PieChart } from 'lucide-astro';
+---
+
+<section class="relative pt-32 pb-24 overflow-hidden bg-white">
+  <!-- Decorative background elements -->
+  <div class="absolute top-0 right-0 w-1/2 h-full bg-slate-50 rounded-l-[100px] -z-10 opacity-50"></div>
+  
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
+      
+      <!-- Text Content -->
+      <div class="flex-1 text-center lg:text-left z-10">
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-50 text-orange-600 text-sm font-bold mb-8 border border-orange-100 animate-fade-in">
+          <TrendingUp size={16} />
+          <span>Transformasi Digital BUMDes & UMKM</span>
+        </div>
+        
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 leading-[1.1] mb-8 tracking-tight">
+          Transformasi Laporan Keuangan Menjadi <span class="text-orange-500">Standar Profesional</span>
+        </h1>
+        
+        <p class="text-lg sm:text-xl text-slate-600 mb-12 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-medium">
+          Solusi penyusunan laporan keuangan cerdas berbasis Excel yang akurat, cepat, dan sangat terjangkau. Membantu usaha Anda tumbuh lebih mandiri dan transparan.
+        </p>
+        
+        <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+          <a href="https://wa.me/628123456789" class="w-full sm:w-auto px-8 py-5 bg-orange-500 text-white rounded-2xl font-extrabold flex items-center justify-center gap-3 hover:bg-orange-600 transition-all shadow-xl shadow-orange-200 group">
+            Konsultasi Gratis Sekarang <ArrowRight size={20} class="group-hover:translate-x-1 transition-transform" />
+          </a>
+          <a href="#layanan" class="w-full sm:w-auto px-8 py-5 bg-white text-slate-700 border border-slate-200 rounded-2xl font-bold hover:bg-slate-50 transition-all">
+            Lihat Portfolio Excel
+          </a>
+        </div>
+      </div>
+
+      <!-- Right Column: Mockup Laptop & Floating Cards -->
+      <div class="flex-1 relative w-full max-w-2xl lg:max-w-none flex justify-center lg:justify-end">
+        
+        <!-- Main Laptop Mockup -->
+        <div class="relative z-10 animate-float w-full max-w-[500px]">
+          <!-- Laptop Body Mockup -->
+          <div class="relative bg-slate-900 rounded-2xl p-2 shadow-2xl overflow-hidden border-[6px] border-slate-800 shadow-orange-500/10">
+            <!-- Screen Area -->
+            <div class="aspect-[16/10] min-h-[250px] bg-slate-200 rounded-lg overflow-hidden relative group">
+              <Image 
+                src={heroImage} 
+                alt="Excel Laporan Keuangan Dashboard" 
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                loading="eager"
+              />
+              <!-- Overlay for the Screen effect -->
+              <div class="absolute inset-0 bg-gradient-to-tr from-orange-500/20 to-transparent pointer-events-none"></div>
+            </div>
+          </div>
+          <!-- Laptop Base -->
+          <div class="h-4 w-[105%] bg-slate-900 rounded-b-3xl -ml-[2.5%] -mt-1 shadow-2xl border-x border-b border-slate-800"></div>
+        </div>
+
+        <!-- Floating Cards around the laptop -->
+        
+        <!-- Card 1: Revenue -->
+        <div class="absolute -top-10 -right-6 z-20 bg-white p-6 rounded-3xl shadow-2xl border border-slate-100 flex items-center gap-4 animate-float-delayed">
+           <div class="w-12 h-12 bg-green-50 rounded-2xl flex items-center justify-center text-green-600">
+             <DollarSign size={24} />
+           </div>
+           <div>
+             <div class="text-[10px] uppercase font-bold text-slate-400 tracking-wider">Laba Bersih</div>
+             <div class="text-lg font-black text-slate-800">Rp 45.2 jt</div>
+           </div>
+        </div>
+
+        <!-- Card 2: Growth -->
+        <div class="absolute bottom-10 -left-8 z-20 bg-white p-6 rounded-3xl shadow-2xl border border-slate-100 flex flex-col gap-2 animate-float">
+           <div class="flex items-center gap-3">
+             <div class="w-10 h-10 bg-orange-50 rounded-xl flex items-center justify-center text-orange-500">
+               <PieChart size={20} />
+             </div>
+             <div class="text-sm font-bold text-slate-800">Efisiensi Biaya</div>
+           </div>
+           <div class="h-2 w-full bg-slate-100 rounded-full overflow-hidden">
+             <div class="h-full bg-orange-500 w-[78%]"></div>
+           </div>
+           <div class="text-[10px] font-bold text-slate-400">Peningkatan 15% dari tahun lalu</div>
+        </div>
+        
+        <!-- Decorative blobs -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-orange-500/10 rounded-full blur-[100px] -z-10"></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+  }
+  @keyframes float-delayed {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+  }
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  .animate-float-delayed {
+    animation: float-delayed 7s ease-in-out infinite;
+    animation-delay: 1s;
+  }
+  .animate-fade-in {
+    animation: fadeIn 1s ease-out;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>

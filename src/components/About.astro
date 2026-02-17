@@ -1,0 +1,87 @@
+---
+import { Image } from 'astro:assets';
+import { Award, Target, Heart } from 'lucide-astro';
+// Pastikan Anda memiliki gambar profile di folder assets, jika tidak akan fallback ke placeholder
+import profileImg from '../assets/hero.avif'; 
+---
+
+<section id="tentang" class="py-24 bg-white relative overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
+      
+      <!-- Left: Column Image & Badge -->
+      <div class="flex-1 relative order-2 lg:order-1">
+        <div class="relative z-10 rounded-[3rem] overflow-hidden shadow-2xl border-8 border-slate-50">
+          <Image 
+            src={profileImg} 
+            alt="Profil Profesional" 
+            class="w-full aspect-[4/5] object-cover"
+          />
+        </div>
+        
+        <!-- Experience Badge -->
+        <div class="absolute -bottom-10 -right-6 lg:-right-10 z-20 bg-orange-500 p-8 rounded-3xl shadow-2xl text-white transform rotate-3 hover:rotate-0 transition-transform duration-500">
+          <div class="text-4xl font-black mb-1">PRO</div>
+          <div class="text-sm font-bold opacity-90 uppercase tracking-widest">Profesional Keuangan</div>
+        </div>
+
+        <!-- Decorative dots background -->
+        <div class="absolute -top-10 -left-10 w-40 h-40 bg-orange-100 rounded-full blur-3xl opacity-50 -z-10"></div>
+      </div>
+
+      <!-- Right: Column Text Content -->
+      <div class="flex-1 order-1 lg:order-2">
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-50 text-slate-600 text-sm font-bold mb-8 border border-slate-200 uppercase tracking-widest">
+          Tentang Kami
+        </div>
+        
+        <h2 class="text-4xl sm:text-5xl font-black text-slate-900 leading-tight mb-8 tracking-tight">
+          Menjembatani <span class="text-orange-500">Profesionalisme</span> dengan Ekonomi Desa
+        </h2>
+        
+        <p class="text-lg text-slate-600 mb-8 leading-relaxed font-medium">
+          Kami lahir dari visi untuk memberdayakan BUMDes dan UMKM di Indonesia agar memiliki standar pelaporan keuangan yang setara dengan perusahaan besar, namun dengan cara yang tetap sederhana dan terjangkau.
+        </p>
+
+        <p class="text-slate-500 mb-12 leading-relaxed">
+          Sebagai praktisi keuangan profesional, kami memahami bahwa kendala utama di desa dan usaha kecil bukanlah ketiadaan data, melainkan kerumitan alat bantu yang tersedia. Itulah mengapa kami fokus mengembangkan solusi berbasis Excel yang sistematis dan mudah diaplikasikan.
+        </p>
+
+        <!-- Values Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+          <div class="flex flex-col gap-4">
+            <div class="w-12 h-12 bg-orange-50 rounded-2xl flex items-center justify-center text-orange-500">
+              <Award size={24} />
+            </div>
+            <div>
+              <h4 class="font-bold text-slate-900 mb-1 leading-tight">Misi Kami</h4>
+              <p class="text-sm text-slate-500 leading-relaxed font-medium">Mewujudkan 1000 BUMDes mandiri dengan laporan keuangan yang transparan dan akuntabel.</p>
+            </div>
+          </div>
+          
+          <div class="flex flex-col gap-4">
+            <div class="w-12 h-12 bg-orange-50 rounded-2xl flex items-center justify-center text-orange-500">
+              <Target size={24} />
+            </div>
+            <div>
+              <h4 class="font-bold text-slate-900 mb-1 leading-tight">Visi Kami</h4>
+              <p class="text-sm text-slate-500 leading-relaxed font-medium">Menjadi mitra terpercaya dalam transformasi digital keuangan di sektor rural Indonesia.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Signature/Founder Note -->
+        <div class="mt-16 flex items-center gap-6 p-6 bg-slate-50 rounded-2xl border border-slate-100">
+          <div class="w-14 h-14 rounded-full bg-orange-500 flex items-center justify-center text-white font-black text-xl">
+            A
+          </div>
+          <div>
+            <div class="font-bold text-slate-900">Amanah Keuangan</div>
+            <div class="text-xs font-bold text-orange-500 uppercase tracking-widest">Mitra Pertumbuhan Anda</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

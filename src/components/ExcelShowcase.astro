@@ -1,0 +1,87 @@
+---
+import { Image } from 'astro:assets';
+import heroImage from '../assets/hero.avif';
+import { LayoutGrid, FileText, Lightbulb } from 'lucide-astro';
+---
+
+<section class="py-24 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="bg-slate-900 rounded-[3.5rem] overflow-hidden relative shadow-2xl">
+      
+      <!-- Content Grid -->
+      <div class="flex flex-col lg:flex-row items-stretch">
+        
+        <!-- Left Column: Visual Grid/Table Image -->
+        <div class="flex-1 min-h-[400px] relative overflow-hidden group">
+          <!-- Represents the "clean table grid" requirement -->
+          <div class="absolute inset-0 bg-slate-800 p-8 flex flex-col gap-4">
+             <!-- Simulated Excel Grid Overlay -->
+             <div class="grid grid-cols-6 gap-2 opacity-10 h-full">
+                {Array(60).fill(0).map(() => (
+                  <div class="border border-white/20 rounded-sm"></div>
+                ))}
+             </div>
+             
+             <!-- Actual Image with Overlay -->
+             <div class="absolute inset-0 p-12">
+               <div class="relative w-full h-full rounded-2xl overflow-hidden shadow-2xl border border-white/10">
+                 <Image 
+                   src={heroImage} 
+                   alt="Excel Analytics Preview" 
+                   class="w-full h-full object-cover grayscale opacity-50 contrast-125"
+                 />
+                 <!-- Gradient Overlay Orange Tipis di Salah Satu Sudut -->
+                 <div class="absolute bottom-0 right-0 w-2/3 h-2/3 bg-gradient-to-tl from-orange-500/40 to-transparent"></div>
+               </div>
+             </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Text Content -->
+        <div class="flex-1 p-12 lg:p-24 flex flex-col justify-center relative">
+          <div class="relative z-10">
+            <h2 class="text-4xl lg:text-5xl font-black text-white mb-8 leading-tight tracking-tight">
+              Keunggulan Sistem <br/> <span class="text-orange-500">Excel Kami</span>
+            </h2>
+            
+            <div class="space-y-8">
+              <div class="flex gap-6 items-start">
+                <div class="w-12 h-12 rounded-2xl bg-white/5 flex items-center justify-center text-orange-500 flex-shrink-0 border border-white/10">
+                  <LayoutGrid size={24} />
+                </div>
+                <div>
+                  <h4 class="text-xl font-bold text-white mb-2 tracking-tight">Antarmuka Dashboard Intuitif</h4>
+                  <p class="text-slate-400 font-medium leading-relaxed italic">"Didesain agar siapapun di desa bisa mengerti tanpa harus jadi akuntan."</p>
+                </div>
+              </div>
+
+              <div class="flex gap-6 items-start">
+                <div class="w-12 h-12 rounded-2xl bg-white/5 flex items-center justify-center text-orange-500 flex-shrink-0 border border-white/10">
+                  <FileText size={24} />
+                </div>
+                <div>
+                  <h4 class="text-xl font-bold text-white mb-2 tracking-tight">Laporan Siap Cetak & Audit</h4>
+                  <p class="text-slate-400 font-medium leading-relaxed italic">"Otomatisasi Laba Rugi dan Neraca lengkap sesuai regulasi yang berlaku."</p>
+                </div>
+              </div>
+
+              <div class="flex gap-6 items-start">
+                <div class="w-12 h-12 rounded-2xl bg-white/5 flex items-center justify-center text-orange-500 flex-shrink-0 border border-white/10">
+                  <Lightbulb size={24} />
+                </div>
+                <div>
+                  <h4 class="text-xl font-bold text-white mb-2 tracking-tight">Kemandirian Data 100%</h4>
+                  <p class="text-slate-400 font-medium leading-relaxed italic">"Data milik Anda selamanya. Tidak ada biaya langganan software tahunan."</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Subtle Background Decoration -->
+          <div class="absolute -bottom-20 -right-20 w-80 h-80 bg-orange-500 blur-[150px] opacity-10 -z-0"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

@@ -1,0 +1,47 @@
+---
+import { FileSpreadsheet, GraduationCap, ShieldCheck } from 'lucide-astro';
+
+const services = [
+  {
+    title: 'Penyusunan Laporan Keuangan',
+    desc: 'Ubah tumpukan nota menjadi laporan profesional (Neraca, Laba Rugi, Arus Kas) berbasis Excel yang rapi dan akurat.',
+    icon: FileSpreadsheet,
+  },
+  {
+    title: 'Pelatihan Keuangan Praktis',
+    desc: 'Program edukasi mandiri untuk staf desa dan pemilik UMKM. Belajar pembukuan dari dasar tanpa perlu software pusing.',
+    icon: GraduationCap,
+  },
+  {
+    title: 'Audit Keuangan Internal',
+    desc: 'Evaluasi kesehatan keuangan secara berkala untuk mencegah kebocoran anggaran dan meningkatkan transparansi.',
+    icon: ShieldCheck,
+  },
+];
+---
+
+<section id="layanan" class="py-24 bg-white relative">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-3xl mx-auto mb-20">
+      <h2 class="text-orange-500 font-extrabold tracking-widest uppercase text-sm mb-4">Layanan Kami</h2>
+      <p class="text-4xl sm:text-5xl font-black text-slate-900 mb-6 tracking-tight">Solusi Keuangan Tepat Guna</p>
+      <div class="h-1.5 w-24 bg-orange-500 mx-auto rounded-full"></div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+      {services.map(s => (
+        <div class="flex flex-col items-center text-center group">
+          <!-- Soft Orange Circle Background for Icon -->
+          <div class="w-24 h-24 bg-orange-50 rounded-full flex items-center justify-center mb-8 border border-orange-100 group-hover:bg-orange-500 group-hover:text-white transition-all duration-500 group-hover:scale-110 shadow-sm group-hover:shadow-orange-200">
+            <s.icon size={40} class="text-orange-500 group-hover:text-white transition-colors" />
+          </div>
+          <h3 class="text-2xl font-bold text-slate-900 mb-4 group-hover:text-orange-500 transition-colors tracking-tight">{s.title}</h3>
+          <p class="text-slate-600 leading-relaxed font-medium mb-8 max-w-sm">"{s.desc}"</p>
+          <a href="https://wa.me/628123456789" class="text-sm font-black text-orange-600 flex items-center gap-2 group-hover:gap-4 transition-all uppercase tracking-widest">
+            Konsultasi <span class="bg-orange-600 w-6 h-[2px]"></span>
+          </a>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
